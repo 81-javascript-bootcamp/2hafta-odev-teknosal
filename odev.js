@@ -18,6 +18,7 @@ var car = {
 var myCarDetails =  car.displayDetails;
 myCarDetails();
 **/
+//1.
 
 var car = { 
     registrationNumber: "GA12345",
@@ -29,6 +30,21 @@ var car = {
 }
 
 var myCarDetails =  car.displayDetails;
+myCarDetails();
+
+
+//2. bind ile
+
+var car = {
+  registrationNumber: "GA12345",
+  brand: "Toyota",
+
+  displayDetails: function () {
+    console.log(this.registrationNumber + " " + this.brand);
+  },
+};
+
+var myCarDetails = car.displayDetails.bind(car);
 myCarDetails();
 
 /** 
@@ -83,6 +99,7 @@ function summary(genre, year) {
   )
 }
 **/
+//1. 
 
 const book = {
   title: 'Brave New World',
@@ -94,6 +111,20 @@ function summary(genre, year) {
     `${book.title} was written by ${book.author}. It is a ${genre} novel written in ${year}.`
   )
 }
+summary('dystopian','1932')
 
+//2. call ile
+
+const book = {
+  title: "Brave New World",
+  author: "Aldous Huxley",
+};
+
+function summary(genre, year) {
+  console.log(
+    `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`
+  );
+}
+summary.call(book, 'dystopian', '1932');
 
 
