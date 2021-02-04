@@ -4,6 +4,7 @@
 
 **/
 
+/**
 var car = { 
     registrationNumber: "GA12345",
     brand: "Toyota",
@@ -13,9 +14,22 @@ var car = {
     }
 }
 
+
 var myCarDetails =  car.displayDetails;
 myCarDetails();
+**/
 
+var car = { 
+    registrationNumber: "GA12345",
+    brand: "Toyota",
+
+    displayDetails: function(){
+       console.log(this.car.registrationNumber + " " + this.car.brand);
+    }
+}
+
+var myCarDetails =  car.displayDetails;
+myCarDetails();
 
 /** 
 
@@ -27,10 +41,28 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 
 **/
 
-function isValidName(name) {
-  /// your code here
-}
+/// your code here
+function isValid(name) {
+  if (typeof(name) === 'string' && name.trim().length !== 0) {
 
+    let a = name.split(' ');
+
+    for (let i = 0; i < a.length; i++) {
+      if (a[i].length >= 2) {
+        continue
+      } else {
+        return false
+      }
+    }
+
+    return true
+  } 
+  else {
+    return false
+  }
+
+}
+console.log(isValid('Salih'))
 
 
 /**
@@ -39,7 +71,7 @@ function isValidName(name) {
 3. summary fonkisyonunu ciktisi "Brave New World was written by Aldous Huxley. It is a dystopian novel written in 1932." olacak sekilde cagirin.
 
 **/
-
+/**
 const book = {
   title: 'Brave New World',
   author: 'Aldous Huxley',
@@ -50,7 +82,18 @@ function summary(genre, year) {
     `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
   )
 }
+**/
 
+const book = {
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+}
+
+function summary(genre, year) {
+  console.log(
+    `${book.title} was written by ${book.author}. It is a ${genre} novel written in ${year}.`
+  )
+}
 
 
 
